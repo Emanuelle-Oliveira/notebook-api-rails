@@ -7,6 +7,8 @@ class ContactsController < ApplicationController
 
     # @contacts.as_json.to_json
     render json: @contacts
+    # , methods: :birthdate_br
+    # , methods: %i[hello i18n]
     # , methods: :author
     # .map { |contact| contact.attributes.merge({ author: 'manu' }) }
     # except: [:name, :email] #only: [:name, :email] #root: true #status: :partial_content
@@ -14,7 +16,8 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
-    render json: @contact # , include: :kind
+    render json: @contact.to_br
+    # @contact # , include: :kind
   end
 
   # POST /contacts
