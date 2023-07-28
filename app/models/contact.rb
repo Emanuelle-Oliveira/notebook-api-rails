@@ -1,10 +1,19 @@
 class Contact < ApplicationRecord
   belongs_to :kind # , optional: true
-  has_many :phones
+
+  # no update: caso queira atualizar phone ou address é necessário passar sei id, senão será feito um create
+
   # phones não foi criado pelo scaffolds e sim como um model comum
   # seu cadastrado será junto com o create/update de contato
   # permissão para delete para o phone
+  has_many :phones
   accepts_nested_attributes_for :phones, allow_destroy: true
+
+  # rails permite que mais de um endereço seja cadastrado no BD para o mesmo contato
+  # porém, quando puxa o contato, pega o último endereço
+  # update_only -> impede esse comportamento, apenas um registo, one to one, sem ser necessário passar o id
+  has_one :address
+  accepts_nested_attributes_for :address, update_only: true
 
   def birthdate_br
     I18n.l(birthdate) unless birthdate.blank?
