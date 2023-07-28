@@ -48,6 +48,7 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -109,6 +110,11 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     puma (3.12.6)
     puma (3.12.6-java)
     racc (1.7.1)
@@ -208,6 +214,7 @@ DEPENDENCIES
   byebug
   faker
   listen (>= 3.0.5, < 3.2)
+  pry-rails
   puma (~> 3.11)
   rails (~> 5.2.0)
   rails-i18n
