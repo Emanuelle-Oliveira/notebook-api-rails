@@ -16,7 +16,12 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
-    render json: @contact, include: %i[kind phones address]
+    render json: @contact, include: [:kind]
+    # , meta: { author: 'Manu' }
+    # meta -> informações extras
+    # , include: %i[kind phones address]
+    # phones são incluidos pelo ams pq são do tipo has_many e has_one
+    # kind é belongs to
     # .to_br
     # @contact # , include: :kind
   end
