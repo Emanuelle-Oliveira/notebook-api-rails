@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :auths, only: [:create]
+
   resources :kinds
 
   resources :contacts do
@@ -7,10 +9,9 @@ Rails.application.routes.draw do
 
     resource :phones, only: [:show] # contacts/1/phones
     resource :phones, only: [:show], path: 'relationships/phones'
-    
+
     resource :phone, only: %i[update create destroy] # contacts/1/phone/1
     resource :phone, only: %i[update create destroy], path: 'relationships/phone'
-
 
     resource :address, only: %i[show update create destroy] # contacts/1/address
     resource :address, only: %i[show update create destroy], path: 'relationships/address'
