@@ -10,10 +10,15 @@ module V1
       # @contacts = Contact.last(5).reverse
       # end
 
-      @contacts = Contact.all
+      @contacts = Contact.all.page(params[:page]).per(5)
+
+      # @contacts = Contact.all.page(params[:page][:number]).per([:page][:size])
+
+      render json: @contacts
 
       # @contacts.as_json.to_json
-      render json: @contacts
+      # Pagination com header:
+      # paginate json: @contacts
       # , methods: :birthdate_br
       # , methods: %i[hello i18n]
       # , methods: :author

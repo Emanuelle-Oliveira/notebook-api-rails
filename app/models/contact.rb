@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+
+  paginates_per 5
+
   belongs_to :kind # , optional: true
 
   # no update: caso queira atualizar phone ou address é necessário passar sei id, senão será feito um create
