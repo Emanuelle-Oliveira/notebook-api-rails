@@ -16,7 +16,11 @@ module V1
 
       # @contacts = Contact.all.page(params[:page][:number]).per([:page][:size])
 
-      render json: @contacts
+      # cache control: expires_in 30.seconds, public: true
+      # if stale?(last_modified: @contacts)
+      if stale?(etag: @contacts)
+        render json: @contacts
+      end
 
       # @contacts.as_json.to_json
       # Pagination com header:
