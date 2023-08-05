@@ -34,7 +34,7 @@ module V1
 
     # GET /contacts/1
     def show
-      render json: @contact, include: %i[kind address phones]
+      render json: @contact # , include: %i[kind address phones]
       # , meta: { author: 'Manu' }
       # meta -> informações extras
       # , include: %i[kind phones address]

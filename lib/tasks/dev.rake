@@ -3,7 +3,7 @@ namespace :dev do
 
   task setup: :environment do
     # %x(rails db:drop db:create db:migrate)
-    `rails db:drop db:create db:migrate`
+    # `rails db:drop db:create db:migrate`
 
     puts 'Cadastrando os tipos de contatos'
     kinds = %w[Amigo Comercial Conhecido] # ['Amigo', 'Comercial', 'Contato']
